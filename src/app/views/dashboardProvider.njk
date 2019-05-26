@@ -1,0 +1,33 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+<div class="content">
+<img class="img-dashboard" src="/files/{{ user.avatar }}" alt="{{ user.name }}">
+<strong>Olá, {{ user.name }}</strong>
+<p>Veja seus agendamentos abaixo:</p>
+
+ <form>
+     <input type="text" class="flatpickr" placeholder="Escolha uma data">
+     <div id="appointments">
+
+     </div>
+
+  </form>
+
+<a href="/app/logout" class="logout">Sair</a>
+</div>
+<script type="text/javascript">
+ flatpickr('.flatpickr', {
+   minDate: new Date(),
+   dateFormat: 'd/m/Y',
+   onChange: function(date){
+      fetch(`/app/dashboardProvider/getAppointments/?date=${date[0].getTime()}`)
+      .then(function(response){
+        response.text().then(function(html){
+           document.getElementById('appointments').innerHTML = html
+        })
+      })
+   }
+ })
+</script>
+{% endblock %}
