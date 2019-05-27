@@ -9,7 +9,7 @@
 {% for provider in providers %}
   <li class="provider">
     <div>
-      <img src="/files/{{ provider.avatar }}" alt="{{ provider.name }}">
+      <img src="{{ provider.url }}" alt="{{ provider.name }}">
       <strong>{{ provider.name }}</strong>
     </div>
     <a href="/app/appointments/new/{{provider.id}}">+</a>
