@@ -7,11 +7,8 @@ module.exports = {
     destination: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'),
     filename: (req, file, cb) => {
       crypto.randomBytes(16, (err, raw) => {
-        if(err) cb(err);
-
-                file.key = `${hash.toString('hex')}-${file.originalname}`;
-
-                cb(null, file.key);
+       if (err) return cb(err)
+        cb(null, raw.toString('hex') + path.extname(file.originalname))
       })
     }
   })
