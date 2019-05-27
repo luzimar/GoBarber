@@ -32,7 +32,7 @@ User.methods = {
   }
 }
 
-File.virtual("url").get(function(){
+User.virtual("url").get(function(){
     const url = process.env.URL || 'http://localhost:3333';
     return `${url}/files/${encodeURIComponent(this.avatar)}`;
 })
