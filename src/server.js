@@ -43,7 +43,6 @@ class App {
   }
 
   routes () {
-    this.express.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
     this.express.use(require('./routes'))
   }
 }
