@@ -14,7 +14,7 @@ class App {
     this.routes()
   }
   middlewares () {
-    this.express.use(express.urlencoded({ extended: true }))
+    this.express.use(express.urlencoded({ extended: false }))
 
     this.express.use(flash())
 
