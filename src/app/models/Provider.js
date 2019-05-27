@@ -32,4 +32,10 @@ Provider.methods = {
   }
 }
 
+User.virtual("url").get(function(){
+    const url = process.env.URL || 'http://localhost:3333';
+    
+    return `${url}/files/${encodeURIComponent(this.avatar)}`;
+})
+
 module.exports = mongoose.model('Provider', Provider)
