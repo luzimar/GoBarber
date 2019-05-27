@@ -28,7 +28,6 @@ routes.get('/app/dashboard', DashboardController.index)
 routes.get('/app/dashboardProvider', DashboardProviderController.index)
 routes.get('/app/dashboardProvider/getAppointments', DashboardProviderController.getAppointments)
 
-routes.get('/files/:file', FileController.show)
 
 routes.get('/app/appointments/new/:provider', AppointmentController.create)
 routes.post('/app/appointments/new/:provider', AppointmentController.store)
