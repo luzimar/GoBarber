@@ -14,7 +14,7 @@ class App {
     this.routes()
   }
   middlewares () {
-    this.express.use(express.urlencoded({ extended: false }))
+    this.express.use(express.urlencoded({ extended: true }))
 
     this.express.use(flash())
 
@@ -43,6 +43,7 @@ class App {
   }
 
   routes () {
+    this.express.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
     this.express.use(require('./routes'))
   }
 }
