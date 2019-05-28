@@ -1,6 +1,7 @@
 const express = require('express')
+const multer = require("multer")
 const multerConfig = require('./config/multer')
-const upload = require('multer')(multerConfig)
+//const upload = require('multer')(multerConfig)
 const { authMiddleware, guestMiddleware } = require('./app/middlewares')
 const routes = express.Router()
 const { UserController, SessionController,
@@ -19,7 +20,8 @@ routes.get('/signup', guestMiddleware, UserController.create)
 routes.get('/app/logout', SessionController.destroy)
 
 routes.post('/signin', SessionController.store)
-routes.post('/signup', upload.single('avatar'), UserController.store)
+//routes.post('/signup', upload.single('avatar'), UserController.store)
+routes.post('/signup', multer(multerConfig).single('avatar'), UserController.store)
 
 // Middleware que não permite usuário logado acessar rotas internas do app
 routes.use('/app', authMiddleware)
