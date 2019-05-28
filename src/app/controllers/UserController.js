@@ -6,7 +6,7 @@ class UserController {
   }
 
   async store (req, res) {
-   const { path: avatar } = req.file
+   const { avatar: key } = req.file
     if (req.body.provider === '1') {
       await Provider.create({ ...req.body, avatar })
     } else {
