@@ -206,6 +206,20 @@ ul.providers {
   justify-content: space-between;
 }
 
+.provider-appointment{
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.provider-appointment strong {
+ margin-top: 10px;
+}
+
 .provider img {
   width: 50px;
   height: 50px;
