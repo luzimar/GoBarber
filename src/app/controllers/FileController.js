@@ -10,7 +10,6 @@ class FileController {
       '..',
       '..',
       'tmp',
-      'uploads',
       file)
 
     return res.sendFile(filePath)
