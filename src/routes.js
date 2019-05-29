@@ -22,7 +22,7 @@ routes.get('/app/logout', SessionController.destroy)
 routes.post('/signin', SessionController.store)
 //routes.post('/signup', upload.single('avatar'), UserController.store)
 routes.post('/signup', multer(multerConfig).single('avatar'), UserController.store)
-
+routes.get('/files/:file', FileController.show)
 // Middleware que não permite usuário logado acessar rotas internas do app
 routes.use('/app', authMiddleware)
 
