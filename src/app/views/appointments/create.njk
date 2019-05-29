@@ -7,10 +7,8 @@
 <div class="content">
   <strong>Agendando horário</strong>
   <div class="provider">
-    <div>
       <img src="/files/{{ provider.avatar }}" alt="{{ provider.name }}">
       <strong>{{ provider.name }}</strong>
-    </div>
   </div>
   <form action="/app/appointments/new/{{ provider.id }}" method="post">
      <input type="text" class="flatpickr" placeholder="Escolha uma data">
